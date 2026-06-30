@@ -1,0 +1,31 @@
+# ===== Vaccine Topic Monitor - Configuration =====
+
+data:
+  mode: mock               # "mock" or "live" (when X API is available)
+  mock_size: 500
+
+keywords:
+  - วัคซีน
+  - vaccine
+  - ผลข้างเคียงวัคซีน
+  - วัคซีนโควิด
+  - ฉีดวัคซีน
+  - กลัววัคซีน
+
+topic_model:
+  method: bertopic         # "bertopic" or "lda"
+  n_topics: 8              # 0 = auto
+  language: thai
+  min_topic_size: 10
+
+llm:
+  provider: openai         # "openai" or "ollama"
+  model: gpt-4o-mini
+  use_llm_labeling: true
+  max_tokens: 300
+
+output:
+  save_csv: true
+  save_report: true
+  report_language: thai
+  output_dir: data/output
